@@ -50,15 +50,15 @@ public class Product {
     public void discount(DiscountType discountType) {
         if (DiscountType.CHRISTMAS.equals(discountType)) {
             discountStrategy = new ChristmasStrategy();
-            discountStrategy.discount(this.cost);
+            discount = discountStrategy.discount(this.getCost());
         }
          else if (DiscountType.EASTER.equals(discountType)){
             discountStrategy = new EasterStrategy();
-            discountStrategy.discount(this.cost);
+           discount = discountStrategy.discount(this.getCost());
         }
         else if (DiscountType.NEWYEAR.equals((discountType))){
             discountStrategy = new NewYearStrategy();
-            discountStrategy.discount(this.cost);
+           discount =  discountStrategy.discount(this.getCost());
         }else{
             throw new IllegalArgumentException("wrong discount");
         }
